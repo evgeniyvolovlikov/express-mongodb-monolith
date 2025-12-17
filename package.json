@@ -1,36 +1,36 @@
 {
-  "name": "express-mongodb-monolith",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start:dev": "ts-node-dev --respawn --transpile-only src/server.ts",
-    "build:prod": "tsc",
-    "start:prod": "node dist/server.js",
-    "format": "prettier --write .",
-    "format:check": "prettier --check .",
-    "prepare": "husky"
-  },
-  "lint-staged": {
-    "*.{js,ts,jsx,tsx}": "npm run format:check"
-  },
-  "keywords": [],
-  "author": "Evgeniy Volovlikov",
-  "license": "ISC",
-  "packageManager": "pnpm@10.16.0",
-  "dependencies": {
-    "dotenv": "^17.2.3",
-    "express": "^5.2.1",
-    "morgan": "^1.10.1"
-  },
-  "devDependencies": {
-    "@types/express": "^5.0.6",
-    "@types/morgan": "^1.9.10",
-    "@types/node": "^25.0.3",
-    "husky": "^9.1.7",
-    "lint-staged": "^16.2.7",
-    "prettier": "^3.7.4",
-    "ts-node-dev": "^2.0.0",
-    "typescript": "^5.9.3"
-  }
+    "name": "express-mongodb-monolith",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start:dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+        "build:prod": "tsc",
+        "start:prod": "node dist/server.js",
+        "format:prettier": "prettier --write .",
+        "format:check": "prettier --check .",
+        "prepare": "husky"
+    },
+    "lint-staged": {
+        "*.{js,ts,jsx,tsx}": "npm run format:check"
+    },
+    "keywords": [],
+    "author": "Evgeniy Volovlikov",
+    "license": "ISC",
+    "packageManager": "pnpm@10.16.0",
+    "dependencies": {
+        "dotenv": "^17.2.3",
+        "express": "^5.2.1",
+        "morgan": "^1.10.1"
+    },
+    "devDependencies": {
+        "@types/express": "^5.0.6",
+        "@types/morgan": "^1.9.10",
+        "@types/node": "^25.0.3",
+        "husky": "^9.1.7",
+        "lint-staged": "^16.2.7",
+        "prettier": "^3.7.4",
+        "ts-node-dev": "^2.0.0",
+        "typescript": "^5.9.3"
+    }
 }

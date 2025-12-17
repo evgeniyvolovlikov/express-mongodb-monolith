@@ -1,4 +1,4 @@
-import express from 'express'
+import express, { Router } from 'express'
 import {
     checkID,
     checkBody,
@@ -9,7 +9,7 @@ import {
     deleteTour
 } from '../controllers/tour-controller'
 
-const router = express.Router()
+const router: Router = express.Router()
 
 router.param('id', checkID)
 

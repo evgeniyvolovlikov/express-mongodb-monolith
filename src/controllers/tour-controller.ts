@@ -1,6 +1,11 @@
 import { Request, Response, NextFunction } from 'express'
 
-const checkID = (req: Request, res: Response, next: NextFunction, val: number) => {
+const checkID = (
+    req: Request,
+    res: Response,
+    next: NextFunction,
+    val: number
+) => {
     // res.status(500).json({
     //     status: 'error',
     //     messafe: 'This route is not yet defined!',
@@ -53,4 +58,12 @@ const deleteTour = (req: Request, res: Response) => {
     })
 }
 
-export { checkID, checkBody, getAllTours, getTour, createTour, updateTour, deleteTour }
+export {
+    checkID,
+    checkBody,
+    getAllTours,
+    getTour,
+    createTour,
+    updateTour,
+    deleteTour
+}

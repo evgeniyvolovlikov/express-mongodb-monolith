@@ -1,4 +1,4 @@
-import express from 'express'
+import express, { Router } from 'express'
 import {
     getAllUsers,
     getUser,
@@ -7,7 +7,7 @@ import {
     deleteUser
 } from '../controllers/user-controller'
 
-const router = express.Router()
+const router: Router = express.Router()
 
 router.route('/').get(getAllUsers).post(createUser)
 
