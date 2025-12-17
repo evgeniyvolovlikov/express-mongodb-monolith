@@ -7,7 +7,7 @@ import userRouter from './routes/user-routes'
 const app: Application = express()
 
 // MIDDLEWARE
-if(process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV === 'development') {
     app.use(morgan('dev'))
 }
 

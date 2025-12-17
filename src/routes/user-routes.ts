@@ -1,5 +1,5 @@
 import express from 'express'
-import { 
+import {
     getAllUsers,
     getUser,
     createUser,
@@ -9,15 +9,8 @@ import {
 
 const router = express.Router()
 
-router
-    .route('/')
-    .get(getAllUsers)
-    .post(createUser)
+router.route('/').get(getAllUsers).post(createUser)
 
-router
-    .route('/:id')
-    .get(getUser)
-    .patch(updateUser)
-    .delete(deleteUser)
+router.route('/:id').get(getUser).patch(updateUser).delete(deleteUser)
 
 export default router
