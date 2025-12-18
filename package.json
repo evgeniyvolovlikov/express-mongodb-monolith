@@ -9,7 +9,9 @@
         "start:prod": "node dist/server.js",
         "format:prettier": "prettier --write .",
         "format:check": "prettier --check .",
-        "prepare": "husky"
+        "prepare": "husky",
+        "create:mock:data": "ts-node ./src/scripts/import-dev-data.ts --import",
+        "delete:mock:data": "ts-node ./src/scripts/import-dev-data.ts --delete"
     },
     "lint-staged": {
         "*.{js,ts,jsx,tsx}": "npm run format:check"
@@ -32,6 +34,7 @@
         "lint-staged": "^16.2.7",
         "prettier": "^3.7.4",
         "ts-node-dev": "^2.0.0",
-        "typescript": "^5.9.3"
+        "typescript": "^5.9.3",
+        "ts-node": "^10.9.2"
     }
 }

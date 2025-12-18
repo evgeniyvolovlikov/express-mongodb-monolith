@@ -1,30 +1,37 @@
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
-import app from './app'
+
+process.on('uncaughtException', (err) => {
+    console.log('UNCAUGHT EXCEPTION! Shutting down...')
+    console.log(err.name, err.message)
+    process.exit(1)
+})
 
 dotenv.config({ path: './config.env' })
+import app from './app'
+
 const db = process.env.DATABASE.replace(
     '<PASSWORD>',
     process.env.DATABASE_PASSWORD
 )
 
+mongoose.connect(db).then(() => console.log('DB connection successful!'))
+
 const port = process.env.PORT || 3001
+const server = app.listen(port, () => {
+    console.log(`App running on port ${port}...`)
+})
 
-const start = async () => {
-    try {
-        await mongoose.connect(db)
-        console.log('DB connection successful!')
-        app.listen(port, () => {
-            console.log(`App running on port ${port}...`)
-        })
-    } catch (err) {
-        if (err instanceof Error) {
-            console.error('Database connection error:', err.message)
-        } else {
-            console.error('An unknown error occurred:', err)
-        }
-        process.exit(1)
+process.on('unhandledRejection', (err) => {
+    console.log('UNHANDLED REJECTION! Shutting down...')
+
+    if (err instanceof Error) {
+        console.log(err.name, err.message)
+    } else {
+        console.log('An unknown error occurred', err)
     }
-}
 
-start()
+    server.close(() => {
+        process.exit(1)
+    })
+})

@@ -1,7 +1,5 @@
 import express, { Router } from 'express'
 import {
-    checkID,
-    checkBody,
     getAllTours,
     getTour,
     createTour,
@@ -11,10 +9,7 @@ import {
 
 const router: Router = express.Router()
 
-router.param('id', checkID)
-
-router.route('/').get(getAllTours).post(checkBody, createTour)
-
+router.route('/').get(getAllTours).post(createTour)
 router.route('/:id').get(getTour).patch(updateTour).delete(deleteTour)
 
 export default router

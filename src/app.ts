@@ -12,6 +12,8 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 app.use(express.json())
+app.use(express.urlencoded({ extended: true, limit: '10kb' }))
+app.set('query parser', 'extended')
 
 app.use((req: Request, res: Response, next) => {
     console.log('Middle | ware ======================')
